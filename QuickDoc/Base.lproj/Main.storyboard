@@ -21,23 +21,23 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cybermedLogo1" translatesAutoresizingMaskIntoConstraints="NO" id="Z5i-7X-Nsq" userLabel="logo">
-                                <rect key="frame" x="0.0" y="64" width="375" height="247"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Z5i-7X-Nsq" secondAttribute="height" multiplier="440:290" id="SvA-2H-Oxe"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="patientSelfID" translatesAutoresizingMaskIntoConstraints="NO" id="reE-2j-8o3" userLabel="selfIdentification">
-                                <rect key="frame" x="0.0" y="297" width="375" height="72.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="patientSelfID" translatesAutoresizingMaskIntoConstraints="NO" id="reE-2j-8o3" userLabel="selfIdentification">
+                                <rect key="frame" x="-32.5" y="259" width="440" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="reE-2j-8o3" secondAttribute="height" multiplier="440:85" id="pCU-Yv-Sgw"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="myv-iH-fMY">
-                                <rect key="frame" x="87" y="278" width="300" height="120"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="myv-iH-fMY">
+                                <rect key="frame" x="37.5" y="334" width="300" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-3H-YpP">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -55,6 +55,9 @@
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="patientButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="trf-m6-R2d"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmv-Yb-kmS">
                                         <rect key="frame" x="180" y="0.0" width="120" height="120"/>
@@ -72,11 +75,14 @@
                                                 <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="doctorButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zzh-Ol-Da0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="findADoctor" translatesAutoresizingMaskIntoConstraints="NO" id="Lrp-rG-VCb" userLabel="action">
-                                <rect key="frame" x="0.0" y="594.5" width="375" height="72.5"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="findADoctor" translatesAutoresizingMaskIntoConstraints="NO" id="Lrp-rG-VCb" userLabel="action">
+                                <rect key="frame" x="0.0" y="530.5" width="375" height="72.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Lrp-rG-VCb" secondAttribute="height" multiplier="440:85" id="Av8-cK-FO7"/>
                                 </constraints>
@@ -99,21 +105,64 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ua2-M0-4Fn"/>
                     <connections>
+                        <outlet property="continueImageView" destination="Lrp-rG-VCb" id="xV3-be-HXf"/>
+                        <outlet property="doctorButton" destination="Dmv-Yb-kmS" id="T2d-4k-a6j"/>
                         <outlet property="logoImageView" destination="Z5i-7X-Nsq" id="0Tr-Nj-Ogm"/>
+                        <outlet property="patientButton" destination="aHN-3H-YpP" id="WIa-Wa-T3i"/>
+                        <outlet property="roleImageView" destination="reE-2j-8o3" id="evr-jZ-mbA"/>
+                        <segue destination="gOr-ZM-ruq" kind="show" identifier="showChooseDoctorVC" id="AP9-lm-hiY"/>
+                        <segue destination="PQu-3O-cmM" kind="show" identifier="showOpenOfficeVC" id="IQL-7K-Ejo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="980" y="-544.67766116941539"/>
         </scene>
+        <!--Choose Doctor View Controller-->
+        <scene sceneID="pjl-pf-7pH">
+            <objects>
+                <viewController id="gOr-ZM-ruq" customClass="ChooseDoctorViewController" customModule="QuickDoc" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9CM-hW-3hg"/>
+                        <viewControllerLayoutGuide type="bottom" id="8p1-4Q-6Q6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EOM-nW-wh1">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cij-Z1-tSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1764" y="-889"/>
+        </scene>
+        <!--Open Office View Controller-->
+        <scene sceneID="9Wx-jD-2Jg">
+            <objects>
+                <viewController id="PQu-3O-cmM" customClass="OpenOfficeViewController" customModule="QuickDoc" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b3n-Mo-AbZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="fRI-jQ-kL3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RL8-Hh-53u">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UfS-bt-b8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1764" y="-139"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="AGE-ma-DXh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nzn-a0-O1x" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x2m-IZ-2ZR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="x2m-IZ-2ZR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.13333333333333333" green="0.22352941176470587" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CustomColor {
+class CustomColors {
     
     static let quickDocNavy = UIColor(colorLiteralRed: 34/255, green: 57/255, blue: 100/255, alpha: 1.0)
     
