@@ -94,7 +94,7 @@ class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITab
                     if virtualOffice.status == "open" {
                         VirtualOfficeController.updateVirtualOffice(virtualOffice, withStatus: "occupied", completion: { (virtualOffice) in
                             if let virtualOffice = virtualOffice {
-                                // segue
+                                self.performSegue(withIdentifier: "presentOfficeToPatient", sender: virtualOffice.identifier)
                             }
                         })
                     } else {
@@ -110,6 +110,16 @@ class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
+    }
+    
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? VirtualOfficeViewController,
+            let virtualOfficeIdentifier = sender as? String {
+            destination.userIsPatient = true
+            destination.virtualOfficeIdentifier = virtualOfficeIdentifier
+        }
     }
     
     

@@ -192,6 +192,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xZM-7r-iYW" id="xXt-Wi-QX8"/>
+                        <segue destination="idj-4K-3Dg" kind="presentation" identifier="presentOfficeToPatient" id="kV3-js-TaZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cij-Z1-tSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -303,11 +304,79 @@
                         <outlet property="specialtyLabel" destination="9QS-Td-TUD" id="N06-4b-0lz"/>
                         <outlet property="tableView" destination="JI5-Lj-eK1" id="QLz-It-yt8"/>
                         <outlet property="underlineView" destination="gWI-HU-ZUO" id="Abe-vm-sdz"/>
+                        <segue destination="idj-4K-3Dg" kind="presentation" identifier="presentOfficeToDoctor" id="eBL-ow-sGE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UfS-bt-b8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1764" y="-139.880059970015"/>
+        </scene>
+        <!--Virtual Office View Controller-->
+        <scene sceneID="UqP-Mn-8PS">
+            <objects>
+                <viewController id="idj-4K-3Dg" customClass="VirtualOfficeViewController" customModule="QuickDoc" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AtV-Mf-hOj"/>
+                        <viewControllerLayoutGuide type="bottom" id="d0g-Lj-XRq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w8E-fz-dg1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EN0-98-4Rl" userLabel="videoView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rq5-yk-uYC" userLabel="selfView">
+                                        <rect key="frame" x="253" y="8" width="114" height="124"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Rq5-yk-uYC" secondAttribute="height" multiplier="201" id="QfS-48-nbz"/>
+                                            <constraint firstAttribute="width" constant="80" id="hj2-s2-dwz"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5D-4K-xkV">
+                                        <rect key="frame" x="8" y="8" width="80" height="80"/>
+                                        <color key="backgroundColor" red="0.84313725490196079" green="0.14901960784313725" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="6Kx-j9-RS1"/>
+                                            <constraint firstAttribute="width" secondItem="q5D-4K-xkV" secondAttribute="height" multiplier="1:1" id="iIM-GA-gzL"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Waiting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kt-sg-eSY">
+                                        <rect key="frame" x="139" y="287" width="82" height="28"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Rq5-yk-uYC" secondAttribute="trailing" constant="8" id="Cds-Op-aI8"/>
+                                    <constraint firstItem="q5D-4K-xkV" firstAttribute="leading" secondItem="EN0-98-4Rl" secondAttribute="leading" constant="8" id="a7B-Im-KCJ"/>
+                                    <constraint firstItem="q5D-4K-xkV" firstAttribute="top" secondItem="EN0-98-4Rl" secondAttribute="top" constant="8" id="mPe-Ak-Njw"/>
+                                    <constraint firstItem="Rq5-yk-uYC" firstAttribute="top" secondItem="EN0-98-4Rl" secondAttribute="top" constant="8" id="nkc-cO-USV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EN0-98-4Rl" firstAttribute="leading" secondItem="w8E-fz-dg1" secondAttribute="leadingMargin" constant="-16" id="6Cz-69-mid"/>
+                            <constraint firstItem="EN0-98-4Rl" firstAttribute="top" secondItem="AtV-Mf-hOj" secondAttribute="bottom" id="h5j-l5-S5V"/>
+                            <constraint firstItem="3Kt-sg-eSY" firstAttribute="centerY" secondItem="w8E-fz-dg1" secondAttribute="centerY" id="krY-0C-TuZ"/>
+                            <constraint firstItem="3Kt-sg-eSY" firstAttribute="centerX" secondItem="w8E-fz-dg1" secondAttribute="centerX" id="mhh-A4-HzV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EN0-98-4Rl" secondAttribute="trailing" constant="-16" id="tB2-my-mme"/>
+                            <constraint firstItem="d0g-Lj-XRq" firstAttribute="top" secondItem="EN0-98-4Rl" secondAttribute="bottom" id="vnJ-4h-ZZX"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fop-ql-8aL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2557.5999999999999" y="-546.47676161919048"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AGE-ma-DXh">
@@ -344,4 +413,7 @@
         <image name="reload" width="22" height="22"/>
         <image name="statusKey" width="440" height="44"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="eBL-ow-sGE"/>
+    </inferredMetricsTieBreakers>
 </document>

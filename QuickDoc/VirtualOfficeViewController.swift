@@ -16,6 +16,10 @@ class VirtualOfficeViewController: UIViewController {
         return true
     }
     
+    var virtualOfficeIdentifier: String?
+    
+    var userIsPatient: Bool = true
+        
     // MARK: Outlets
     
     // MARK: Actions

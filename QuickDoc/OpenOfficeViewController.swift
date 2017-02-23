@@ -68,8 +68,7 @@ class OpenOfficeViewController: UIViewController, UITableViewDataSource, UITable
         }
         VirtualOfficeController.createVirtualOffice(forDoctor: lastNameTextField.text!, withSpecialty: selectedSpecialty!) { (virtualOffice) in
             if let virtualOffice = virtualOffice {
-                print(virtualOffice)
-                // segue to virtual office view contoller
+                self.performSegue(withIdentifier: "presentOfficeToDoctor", sender: virtualOffice.identifier)
             }
         }
     }
@@ -147,6 +146,16 @@ class OpenOfficeViewController: UIViewController, UITableViewDataSource, UITable
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+   // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? VirtualOfficeViewController,
+            let virtualOfficeIdentifier = sender as? String {
+            destination.virtualOfficeIdentifier = virtualOfficeIdentifier
+            destination.userIsPatient = false
+        }
     }
     
     

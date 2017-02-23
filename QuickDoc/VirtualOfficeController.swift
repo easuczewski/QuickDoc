@@ -10,11 +10,7 @@ import Foundation
 import Firebase
 
 class VirtualOfficeController {
-    
-    static let sharedInstance = VirtualOfficeController()
-    
-    var currentVirtualOffice: VirtualOffice?
-    
+        
     // MARK: Create
     
     static func createVirtualOffice(forDoctor lastName: String, withSpecialty specialty: String, completion: @escaping(_ virtualOffice: VirtualOffice?) -> Void) {
