@@ -11,7 +11,7 @@
 		029C149A1E5E63D700ECB3F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029C14981E5E63D700ECB3F1 /* Main.storyboard */; };
 		029C149C1E5E63D700ECB3F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029C149B1E5E63D700ECB3F1 /* Assets.xcassets */; };
 		029C149F1E5E63D700ECB3F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029C149D1E5E63D700ECB3F1 /* LaunchScreen.storyboard */; };
-		029C14A71E5F226F00ECB3F1 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 029C14A61E5F226F00ECB3F1 /* GoogleService-Info-2.plist */; };
+		029C14A71E5F226F00ECB3F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 029C14A61E5F226F00ECB3F1 /* GoogleService-Info.plist */; };
 		029C14A91E5F22F900ECB3F1 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029C14A81E5F22F900ECB3F1 /* FirebaseController.swift */; };
 		029C14AB1E5F234B00ECB3F1 /* VirtualOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029C14AA1E5F234B00ECB3F1 /* VirtualOffice.swift */; };
 		029C14B01E5F266800ECB3F1 /* VirtualOfficeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029C14AF1E5F266800ECB3F1 /* VirtualOfficeController.swift */; };
@@ -30,7 +30,7 @@
 		029C149B1E5E63D700ECB3F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		029C149E1E5E63D700ECB3F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		029C14A01E5E63D700ECB3F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		029C14A61E5F226F00ECB3F1 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		029C14A61E5F226F00ECB3F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		029C14A81E5F22F900ECB3F1 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		029C14AA1E5F234B00ECB3F1 /* VirtualOffice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualOffice.swift; sourceTree = "<group>"; };
 		029C14AF1E5F266800ECB3F1 /* VirtualOfficeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualOfficeController.swift; sourceTree = "<group>"; };
@@ -82,11 +82,9 @@
 				029C14AC1E5F259800ECB3F1 /* Model */,
 				029C14AD1E5F25A300ECB3F1 /* Controller */,
 				029C14AE1E5F25BC00ECB3F1 /* View */,
-				029C14981E5E63D700ECB3F1 /* Main.storyboard */,
 				029C149B1E5E63D700ECB3F1 /* Assets.xcassets */,
-				029C149D1E5E63D700ECB3F1 /* LaunchScreen.storyboard */,
 				029C14A01E5E63D700ECB3F1 /* Info.plist */,
-				029C14A61E5F226F00ECB3F1 /* GoogleService-Info-2.plist */,
+				029C14A61E5F226F00ECB3F1 /* GoogleService-Info.plist */,
 			);
 			path = QuickDoc;
 			sourceTree = "<group>";
@@ -111,6 +109,8 @@
 		029C14AE1E5F25BC00ECB3F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				029C149D1E5E63D700ECB3F1 /* LaunchScreen.storyboard */,
+				029C14981E5E63D700ECB3F1 /* Main.storyboard */,
 				029C14B11E5F29E600ECB3F1 /* HomeViewController.swift */,
 				029C14B31E5F2A1000ECB3F1 /* ChooseDoctorViewController.swift */,
 				029C14B51E5F2A2800ECB3F1 /* OpenOfficeViewController.swift */,
@@ -201,7 +201,7 @@
 			files = (
 				029C149F1E5E63D700ECB3F1 /* LaunchScreen.storyboard in Resources */,
 				029C149C1E5E63D700ECB3F1 /* Assets.xcassets in Resources */,
-				029C14A71E5F226F00ECB3F1 /* GoogleService-Info-2.plist in Resources */,
+				029C14A71E5F226F00ECB3F1 /* GoogleService-Info.plist in Resources */,
 				029C149A1E5E63D700ECB3F1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
