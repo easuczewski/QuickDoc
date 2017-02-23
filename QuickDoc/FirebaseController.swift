@@ -23,14 +23,17 @@ class FirebaseController {
 }
 
 protocol FirebaseType {
+    
+    // MARK: Properties
     var identifier: String { get set }
     var endpoint: String { get }
     var jsonValue: [String: AnyObject] { get }
     
+    // MARK: Methods
     init?(json: [String: AnyObject], identifier: String)
-    
     func save(completion: @escaping(_ error: Error?) -> Void)
     func delete(completion: @escaping(_ error: Error?) -> Void)
+    
 }
 
 extension FirebaseType {

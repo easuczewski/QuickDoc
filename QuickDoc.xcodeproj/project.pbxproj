@@ -15,6 +15,7 @@
 		029C14A71E5F226F00ECB3F1 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 029C14A61E5F226F00ECB3F1 /* GoogleService-Info-2.plist */; };
 		029C14A91E5F22F900ECB3F1 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029C14A81E5F22F900ECB3F1 /* FirebaseController.swift */; };
 		029C14AB1E5F234B00ECB3F1 /* VirtualOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029C14AA1E5F234B00ECB3F1 /* VirtualOffice.swift */; };
+		029C14B01E5F266800ECB3F1 /* VirtualOfficeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029C14AF1E5F266800ECB3F1 /* VirtualOfficeController.swift */; };
 		4CDCECB66E2D0CB49B8393D2 /* Pods_QuickDoc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F3FC88E0DD346860E3ED48 /* Pods_QuickDoc.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		029C14A61E5F226F00ECB3F1 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 		029C14A81E5F22F900ECB3F1 /* FirebaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		029C14AA1E5F234B00ECB3F1 /* VirtualOffice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualOffice.swift; sourceTree = "<group>"; };
+		029C14AF1E5F266800ECB3F1 /* VirtualOfficeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualOfficeController.swift; sourceTree = "<group>"; };
 		580BE5245498FBEE82A2519F /* Pods-QuickDoc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickDoc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickDoc/Pods-QuickDoc.debug.xcconfig"; sourceTree = "<group>"; };
 		68F3FC88E0DD346860E3ED48 /* Pods_QuickDoc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickDoc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B42F80C01D0C3B4B5E166120 /* Pods-QuickDoc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickDoc.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickDoc/Pods-QuickDoc.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,9 +70,10 @@
 			isa = PBXGroup;
 			children = (
 				029C14941E5E63D700ECB3F1 /* AppDelegate.swift */,
+				029C14AC1E5F259800ECB3F1 /* Model */,
+				029C14AD1E5F25A300ECB3F1 /* Controller */,
+				029C14AE1E5F25BC00ECB3F1 /* View */,
 				029C14961E5E63D700ECB3F1 /* ViewController.swift */,
-				029C14AA1E5F234B00ECB3F1 /* VirtualOffice.swift */,
-				029C14A81E5F22F900ECB3F1 /* FirebaseController.swift */,
 				029C14981E5E63D700ECB3F1 /* Main.storyboard */,
 				029C149B1E5E63D700ECB3F1 /* Assets.xcassets */,
 				029C149D1E5E63D700ECB3F1 /* LaunchScreen.storyboard */,
@@ -78,6 +81,30 @@
 				029C14A61E5F226F00ECB3F1 /* GoogleService-Info-2.plist */,
 			);
 			path = QuickDoc;
+			sourceTree = "<group>";
+		};
+		029C14AC1E5F259800ECB3F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				029C14AA1E5F234B00ECB3F1 /* VirtualOffice.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		029C14AD1E5F25A300ECB3F1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				029C14A81E5F22F900ECB3F1 /* FirebaseController.swift */,
+				029C14AF1E5F266800ECB3F1 /* VirtualOfficeController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		029C14AE1E5F25BC00ECB3F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		DCDC4262254D5F07AADC094F /* Frameworks */ = {
@@ -223,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				029C14A91E5F22F900ECB3F1 /* FirebaseController.swift in Sources */,
+				029C14B01E5F266800ECB3F1 /* VirtualOfficeController.swift in Sources */,
 				029C14AB1E5F234B00ECB3F1 /* VirtualOffice.swift in Sources */,
 				029C14971E5E63D700ECB3F1 /* ViewController.swift in Sources */,
 				029C14951E5E63D700ECB3F1 /* AppDelegate.swift in Sources */,

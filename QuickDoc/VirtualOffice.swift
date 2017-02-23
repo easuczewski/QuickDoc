@@ -10,10 +10,12 @@ import Foundation
 
 struct VirtualOffice: FirebaseType {
     
+    // MARK: Properties
+    
     var identifier: String
     var doctorLastName: String
     var specialty: String
-    // Status can be "open", "occupied", or "closed"
+    /// Valid statuses are "open", "occupied", or "closed"
     var status: String
     
     var endpoint: String {
@@ -23,6 +25,8 @@ struct VirtualOffice: FirebaseType {
     var jsonValue: [String : AnyObject] {
         return [kDoctorLastName: doctorLastName as AnyObject, kSpecialty: specialty as AnyObject, kStatus: status as AnyObject]
     }
+    
+    // MARK: Initializers
     
     init(identifier: String, doctorLastName: String, specialty: String, status: String) {
         self.identifier = identifier
@@ -44,6 +48,8 @@ struct VirtualOffice: FirebaseType {
     }
     
 }
+
+// MARK: Keys
 
 private let kDoctorLastName = "doctorLastName"
 private let kSpecialty = "specialty"
