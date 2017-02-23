@@ -12,7 +12,16 @@ class HomeViewController: UIViewController {
 
     // MARK: Properties
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // MARK: Outlets
+    
+    @IBOutlet weak var logoImageView: UIImageView!
+    
+    
+    
     
     // MARK: Actions
     
@@ -20,7 +29,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
      // MARK: Methods

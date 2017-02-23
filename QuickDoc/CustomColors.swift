@@ -11,7 +11,9 @@ import UIKit
 
 class CustomColor {
     
-    static let quickDocBlue = UIColor(colorLiteralRed: 34/255, green: 57/255, blue: 100/255, alpha: 1.0)
+    static let quickDocNavy = UIColor(colorLiteralRed: 34/255, green: 57/255, blue: 100/255, alpha: 1.0)
+    
+    static let quickDocCerulean = UIColor(colorLiteralRed: 0/255, green: 169/255, blue: 255/255, alpha: 1.0)
     
     static let quickDocRed = UIColor(colorLiteralRed: 215/255, green: 38/255, blue: 56/255, alpha: 1.0)
     

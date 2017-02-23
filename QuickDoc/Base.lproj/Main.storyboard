@@ -6,6 +6,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,13 +23,88 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cybermedLogo1" translatesAutoresizingMaskIntoConstraints="NO" id="Z5i-7X-Nsq" userLabel="logo">
+                                <rect key="frame" x="0.0" y="64" width="375" height="247"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Z5i-7X-Nsq" secondAttribute="height" multiplier="440:290" id="SvA-2H-Oxe"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="patientSelfID" translatesAutoresizingMaskIntoConstraints="NO" id="reE-2j-8o3" userLabel="selfIdentification">
+                                <rect key="frame" x="0.0" y="297" width="375" height="72.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="reE-2j-8o3" secondAttribute="height" multiplier="440:85" id="pCU-Yv-Sgw"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="myv-iH-fMY">
+                                <rect key="frame" x="87" y="278" width="300" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-3H-YpP">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <color key="backgroundColor" red="0.0" green="0.66274509803921566" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="HfZ-nN-4Tc"/>
+                                            <constraint firstAttribute="width" secondItem="aHN-3H-YpP" secondAttribute="height" multiplier="1:1" id="fES-yG-7sL"/>
+                                        </constraints>
+                                        <state key="normal" image="patient"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="60"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmv-Yb-kmS">
+                                        <rect key="frame" x="180" y="0.0" width="120" height="120"/>
+                                        <color key="backgroundColor" red="0.0" green="0.66274509803921566" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="7lN-dO-TMx"/>
+                                            <constraint firstAttribute="width" secondItem="Dmv-Yb-kmS" secondAttribute="height" multiplier="1:1" id="UdU-Af-akV"/>
+                                        </constraints>
+                                        <state key="normal" image="doctor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="60"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="findADoctor" translatesAutoresizingMaskIntoConstraints="NO" id="Lrp-rG-VCb" userLabel="action">
+                                <rect key="frame" x="0.0" y="594.5" width="375" height="72.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Lrp-rG-VCb" secondAttribute="height" multiplier="440:85" id="Av8-cK-FO7"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Z5i-7X-Nsq" secondAttribute="trailing" constant="-16" id="6lp-VA-2mV"/>
+                            <constraint firstItem="Z5i-7X-Nsq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Hy4-5d-e2b"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Lrp-rG-VCb" secondAttribute="bottom" id="Keu-tb-I9J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lrp-rG-VCb" secondAttribute="trailing" constant="-16" id="LEi-XQ-ue8"/>
+                            <constraint firstItem="myv-iH-fMY" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="OTy-YK-OXB"/>
+                            <constraint firstItem="reE-2j-8o3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RoP-Zy-tMe"/>
+                            <constraint firstItem="reE-2j-8o3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZX3-CO-fnc"/>
+                            <constraint firstItem="reE-2j-8o3" firstAttribute="bottom" secondItem="myv-iH-fMY" secondAttribute="top" constant="10" id="kvQ-ZG-4iv"/>
+                            <constraint firstItem="Z5i-7X-Nsq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="lkU-Ql-m30"/>
+                            <constraint firstItem="myv-iH-fMY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s9E-MU-y1w"/>
+                            <constraint firstItem="Lrp-rG-VCb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="wPs-B9-2qy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ua2-M0-4Fn"/>
+                    <connections>
+                        <outlet property="logoImageView" destination="Z5i-7X-Nsq" id="0Tr-Nj-Ogm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="-544"/>
+            <point key="canvasLocation" x="980" y="-544.67766116941539"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AGE-ma-DXh">
@@ -47,4 +125,11 @@
             <point key="canvasLocation" x="140" y="-543.77811094452773"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cybermedLogo1" width="440" height="290"/>
+        <image name="doctor" width="250" height="250"/>
+        <image name="findADoctor" width="440" height="85"/>
+        <image name="patient" width="250" height="250"/>
+        <image name="patientSelfID" width="440" height="85"/>
+    </resources>
 </document>
