@@ -6,5 +6,8 @@ target 'QuickDoc' do
   use_frameworks!
 
   # Pods for QuickDoc
+  pod ‘Firebase/Core’
+  pod ‘Firebase/Auth’
+  pod 'Firebase/Database'
 
 end
