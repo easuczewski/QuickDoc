@@ -131,7 +131,6 @@ class OpenOfficeViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "specialtyCell", for: indexPath)
         cell.textLabel?.textAlignment = .center
-        cell.textLabel?.textColor = CustomColors.quickDocCerulean
         cell.textLabel?.text = SpecialtiesManager.specialties[indexPath.row]
         return cell
     }

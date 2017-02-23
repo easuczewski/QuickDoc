@@ -11,6 +11,10 @@ import Firebase
 
 class VirtualOfficeController {
     
+    static let sharedInstance = VirtualOfficeController()
+    
+    var currentVirtualOffice: VirtualOffice?
+    
     // MARK: Create
     
     static func createVirtualOffice(forDoctor lastName: String, withSpecialty specialty: String, completion: @escaping(_ virtualOffice: VirtualOffice?) -> Void) {
@@ -40,10 +44,20 @@ class VirtualOfficeController {
                     if vo1.status == vo2.status {
                         return vo1.specialty < vo2.specialty
                     } else {
-                        return vo1.status < vo2.status
+                        return vo1.status > vo2.status
                     }
                 })
                 completion(virtualOffices)
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
+    static func virtualOffice(withIdentifier identifier: String, completion: @escaping(_ virtualOffice: VirtualOffice?) -> Void) {
+        FirebaseController.dataAtEndpoint(endpoint: "virtualOffices/\(identifier)") { (data) in
+            if let json = data as? [String: AnyObject] {
+                completion(VirtualOffice(json: json, identifier: identifier))
             } else {
                 completion(nil)
             }
