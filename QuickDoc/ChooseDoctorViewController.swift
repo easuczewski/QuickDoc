@@ -12,10 +12,6 @@ class ChooseDoctorViewController: UIViewController {
 
     // MARK: Properties
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     // MARK: Outlets
     
     // MARK: Actions
@@ -28,7 +24,7 @@ class ChooseDoctorViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     // MARK: Methods

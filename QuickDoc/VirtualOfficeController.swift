@@ -13,11 +13,13 @@ class VirtualOfficeController {
     
     // MARK: Create
     
-    func createVirtualOffice(forDoctor lastName: String, withSpecialty specialty: String, completion: @escaping(_ virtualOffice: VirtualOffice?) -> Void) {
+    static func createVirtualOffice(forDoctor lastName: String, withSpecialty specialty: String, completion: @escaping(_ virtualOffice: VirtualOffice?) -> Void) {
         if let identifier = FIRAuth.auth()?.currentUser?.uid {
             let virtualOffice = VirtualOffice(identifier: identifier, doctorLastName: lastName, specialty: specialty, status: "open")
             virtualOffice.save(completion: { (error) in
                 if error == nil {
+                    UserDefaults.standard.set(lastName, forKey: "lastName")
+                    UserDefaults.standard.set(specialty, forKey: "specialty")
                     completion(virtualOffice)
                 } else {
                     completion(nil)
@@ -30,7 +32,7 @@ class VirtualOfficeController {
     
     // MARK: Read
     
-    func fetchAllVirtualOffices(completion: @escaping(_ virtualOffices: [VirtualOffice]?) -> Void) {
+    static func fetchAllVirtualOffices(completion: @escaping(_ virtualOffices: [VirtualOffice]?) -> Void) {
         FirebaseController.dataAtEndpoint(endpoint: "virtualOffices") { (data) in
             if let virtualOfficeDictionaries = data as? [String: AnyObject] {
                 var virtualOffices = virtualOfficeDictionaries.flatMap({VirtualOffice(json: $0.1 as! [String : AnyObject], identifier: $0.0)})
@@ -50,7 +52,7 @@ class VirtualOfficeController {
     
     // MARK: Update
     /// Valid statuses are "open", "occupied", or "closed"
-    func updateVirtualOffice(_ virtualOffice: VirtualOffice, withStatus status: String, completion: @escaping(_ virtualOffice: VirtualOffice?) -> Void) {
+    static func updateVirtualOffice(_ virtualOffice: VirtualOffice, withStatus status: String, completion: @escaping(_ virtualOffice: VirtualOffice?) -> Void) {
         var newVirtualOffice = virtualOffice
         newVirtualOffice.status = status
         newVirtualOffice.save { (error) in

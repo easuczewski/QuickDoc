@@ -21,6 +21,7 @@
 		029C14B81E5F2A3500ECB3F1 /* VirtualOfficeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029C14B71E5F2A3500ECB3F1 /* VirtualOfficeViewController.swift */; };
 		029C14BA1E5F2ADA00ECB3F1 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029C14B91E5F2ADA00ECB3F1 /* CustomColors.swift */; };
 		029C14BC1E5F47B000ECB3F1 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029C14BB1E5F47B000ECB3F1 /* ArrayExtension.swift */; };
+		029C14BE1E5F5E0800ECB3F1 /* SpecialtiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029C14BD1E5F5E0800ECB3F1 /* SpecialtiesManager.swift */; };
 		4CDCECB66E2D0CB49B8393D2 /* Pods_QuickDoc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F3FC88E0DD346860E3ED48 /* Pods_QuickDoc.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		029C14B71E5F2A3500ECB3F1 /* VirtualOfficeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualOfficeViewController.swift; sourceTree = "<group>"; };
 		029C14B91E5F2ADA00ECB3F1 /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		029C14BB1E5F47B000ECB3F1 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		029C14BD1E5F5E0800ECB3F1 /* SpecialtiesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialtiesManager.swift; sourceTree = "<group>"; };
 		580BE5245498FBEE82A2519F /* Pods-QuickDoc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickDoc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuickDoc/Pods-QuickDoc.debug.xcconfig"; sourceTree = "<group>"; };
 		68F3FC88E0DD346860E3ED48 /* Pods_QuickDoc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickDoc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B42F80C01D0C3B4B5E166120 /* Pods-QuickDoc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickDoc.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuickDoc/Pods-QuickDoc.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				029C14AA1E5F234B00ECB3F1 /* VirtualOffice.swift */,
+				029C14BD1E5F5E0800ECB3F1 /* SpecialtiesManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				029C14B21E5F29E600ECB3F1 /* HomeViewController.swift in Sources */,
 				029C14A91E5F22F900ECB3F1 /* FirebaseController.swift in Sources */,
 				029C14B81E5F2A3500ECB3F1 /* VirtualOfficeViewController.swift in Sources */,
+				029C14BE1E5F5E0800ECB3F1 /* SpecialtiesManager.swift in Sources */,
 				029C14B61E5F2A2800ECB3F1 /* OpenOfficeViewController.swift in Sources */,
 				029C14B41E5F2A1000ECB3F1 /* ChooseDoctorViewController.swift in Sources */,
 				029C14BC1E5F47B000ECB3F1 /* ArrayExtension.swift in Sources */,
