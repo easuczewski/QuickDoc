@@ -115,8 +115,20 @@ class HomeViewController: UIViewController {
     }
     
     func setUpTapGestureRecognizers() {
+        let toggleRoleTGR = UITapGestureRecognizer(target: self, action: #selector(toggleRoleTapped))
+        self.roleImageView.addGestureRecognizer(toggleRoleTGR)
         let continueTGR = UITapGestureRecognizer(target: self, action: #selector(continueTapped))
         self.continueImageView.addGestureRecognizer(continueTGR)
+    }
+    
+    func toggleRoleTapped() {
+        if userIsPatient {
+            userIsPatient = false
+            updateViewWithUserRole(animated: true)
+        } else {
+            userIsPatient = true
+            updateViewWithUserRole(animated: true)
+        }
     }
     
     func continueTapped() {

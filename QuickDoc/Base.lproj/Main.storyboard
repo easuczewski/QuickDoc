@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="width" secondItem="Z5i-7X-Nsq" secondAttribute="height" multiplier="440:290" id="SvA-2H-Oxe"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="patientSelfID" translatesAutoresizingMaskIntoConstraints="NO" id="reE-2j-8o3" userLabel="selfIdentification">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="patientSelfID" translatesAutoresizingMaskIntoConstraints="NO" id="reE-2j-8o3" userLabel="selfIdentification">
                                 <rect key="frame" x="-32.5" y="259" width="440" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="reE-2j-8o3" secondAttribute="height" multiplier="440:85" id="pCU-Yv-Sgw"/>
@@ -83,7 +83,7 @@
                                 </subviews>
                             </stackView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="findADoctor" translatesAutoresizingMaskIntoConstraints="NO" id="Lrp-rG-VCb" userLabel="action">
-                                <rect key="frame" x="0.0" y="530.5" width="375" height="72.5"/>
+                                <rect key="frame" x="-4" y="529" width="383" height="74"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Lrp-rG-VCb" secondAttribute="height" multiplier="440:85" id="Av8-cK-FO7"/>
                                 </constraints>
@@ -94,14 +94,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Z5i-7X-Nsq" secondAttribute="trailing" constant="-16" id="6lp-VA-2mV"/>
                             <constraint firstItem="Z5i-7X-Nsq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Hy4-5d-e2b"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Lrp-rG-VCb" secondAttribute="bottom" id="Keu-tb-I9J"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Lrp-rG-VCb" secondAttribute="trailing" constant="-16" id="LEi-XQ-ue8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lrp-rG-VCb" secondAttribute="trailing" constant="-20" id="LEi-XQ-ue8"/>
                             <constraint firstItem="myv-iH-fMY" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="OTy-YK-OXB"/>
                             <constraint firstItem="reE-2j-8o3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RoP-Zy-tMe"/>
                             <constraint firstItem="reE-2j-8o3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZX3-CO-fnc"/>
                             <constraint firstItem="reE-2j-8o3" firstAttribute="bottom" secondItem="myv-iH-fMY" secondAttribute="top" constant="10" id="kvQ-ZG-4iv"/>
                             <constraint firstItem="Z5i-7X-Nsq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="lkU-Ql-m30"/>
                             <constraint firstItem="myv-iH-fMY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s9E-MU-y1w"/>
-                            <constraint firstItem="Lrp-rG-VCb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="wPs-B9-2qy"/>
+                            <constraint firstItem="Lrp-rG-VCb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="wPs-B9-2qy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ua2-M0-4Fn"/>
@@ -284,12 +284,12 @@
                             <constraint firstItem="7fK-KB-QNR" firstAttribute="leading" secondItem="4Uc-lg-3kk" secondAttribute="trailing" constant="5" id="Cjr-QJ-Te8"/>
                             <constraint firstItem="gWI-HU-ZUO" firstAttribute="width" secondItem="7fK-KB-QNR" secondAttribute="width" multiplier="0.85" id="F1n-dB-nrV"/>
                             <constraint firstItem="7fK-KB-QNR" firstAttribute="width" secondItem="4Uc-lg-3kk" secondAttribute="width" id="M0i-dk-G13"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VBw-5O-Mhm" secondAttribute="trailing" constant="-16" id="OxV-fw-vsc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VBw-5O-Mhm" secondAttribute="trailing" constant="-20" id="OxV-fw-vsc"/>
                             <constraint firstItem="VBw-5O-Mhm" firstAttribute="top" secondItem="JI5-Lj-eK1" secondAttribute="bottom" constant="20" id="Qwi-OI-pDb"/>
                             <constraint firstAttribute="leadingMargin" secondItem="JI5-Lj-eK1" secondAttribute="leading" constant="-20" id="Vb4-Jk-7SR"/>
                             <constraint firstItem="fRI-jQ-kL3" firstAttribute="top" secondItem="VBw-5O-Mhm" secondAttribute="bottom" id="W7a-oX-Dpq"/>
                             <constraint firstItem="4Uc-lg-3kk" firstAttribute="top" secondItem="b3n-Mo-AbZ" secondAttribute="bottom" constant="40" id="bpI-wy-wqp"/>
-                            <constraint firstItem="VBw-5O-Mhm" firstAttribute="leading" secondItem="RL8-Hh-53u" secondAttribute="leadingMargin" constant="-16" id="dEd-TA-YKU"/>
+                            <constraint firstItem="VBw-5O-Mhm" firstAttribute="leading" secondItem="RL8-Hh-53u" secondAttribute="leadingMargin" constant="-20" id="dEd-TA-YKU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JI5-Lj-eK1" secondAttribute="trailing" constant="20" id="la5-Sm-FgY"/>
                             <constraint firstItem="9QS-Td-TUD" firstAttribute="top" secondItem="4Uc-lg-3kk" secondAttribute="bottom" constant="40" id="s09-ZK-3x7"/>
                             <constraint firstItem="gWI-HU-ZUO" firstAttribute="centerX" secondItem="7fK-KB-QNR" secondAttribute="centerX" id="wr3-nI-N4D"/>
@@ -405,6 +405,6 @@
         <image name="statusKey" width="440" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kV3-js-TaZ"/>
+        <segue reference="eBL-ow-sGE"/>
     </inferredMetricsTieBreakers>
 </document>
