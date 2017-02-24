@@ -32,11 +32,13 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.8)
+  - TwilioVideo (1.0.0-beta8)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - TwilioVideo (= 1.0.0-beta8)
 
 SPEC CHECKSUMS:
   Firebase: 5bc34d7b5ff5792e3386c8b28dc6265deeab0da4
@@ -47,7 +49,8 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
+  TwilioVideo: 24118551e89db9a2d4a655e13bd6d5c03b94eb30
 
-PODFILE CHECKSUM: f806c50d002c77924930c0ad61924671fd387bd5
+PODFILE CHECKSUM: 13467171eb669faf09afe7c89b544db58aaeb1d3
 
 COCOAPODS: 1.1.1

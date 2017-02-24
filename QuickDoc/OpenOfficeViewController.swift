@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OpenOfficeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class OpenOfficeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, VirtualOfficeDelegate {
 
     // MARK: Properties
     
@@ -68,7 +68,9 @@ class OpenOfficeViewController: UIViewController, UITableViewDataSource, UITable
         }
         VirtualOfficeController.createVirtualOffice(forDoctor: lastNameTextField.text!, withSpecialty: selectedSpecialty!) { (virtualOffice) in
             if let virtualOffice = virtualOffice {
-                self.performSegue(withIdentifier: "presentOfficeToDoctor", sender: virtualOffice.identifier)
+                VirtualOfficeController.sharedInstance.currentVirtualOffice = virtualOffice
+                VirtualOfficeController.sharedInstance.userIsPatient = false
+                self.performSegue(withIdentifier: "presentOfficeToDoctor", sender: nil)
             }
         }
     }
@@ -148,13 +150,24 @@ class OpenOfficeViewController: UIViewController, UITableViewDataSource, UITable
         return true
     }
     
+    // MARK: Virtual Office Delegate
+    func virtualOfficeDismissed() {
+        if let virtualOffice = VirtualOfficeController.sharedInstance.currentVirtualOffice {
+            VirtualOfficeController.updateVirtualOffice(virtualOffice, withStatus: "closed", completion: { (virtualOffice) in
+                if let virtualOffice = virtualOffice {
+                    VirtualOfficeController.sharedInstance.currentVirtualOffice = nil
+                    print("disappeared correctly")
+                }
+            })
+        }
+    }
+
+    
    // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? VirtualOfficeViewController,
-            let virtualOfficeIdentifier = sender as? String {
-            destination.virtualOfficeIdentifier = virtualOfficeIdentifier
-            destination.userIsPatient = false
+        if let destination = segue.destination as? VirtualOfficeViewController {
+            destination.delegate = self
         }
     }
     

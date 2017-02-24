@@ -1,0 +1,40 @@
+//
+//  TwilioVideoTests.xcconfig
+//  TwilioSignalSDK
+//
+//  Created by Ryan Payne on 1/20/17.
+//  Copyright © 2017 Twilio, Inc. All rights reserved.
+//
+
+ARCHS = i386 x86_64 armv7 arm64
+ARCHS[sdk=iphoneos*] = armv7 arm64
+ARCHS[sdk=iphonesimulator*] = i386 x86_64
+
+// Code Signing.
+CODE_SIGN_ENTITLEMENTS =
+
+// Packaging.
+INFOPLIST_FILE = TwilioSDKTests/TwilioSDKTests-Info.plist
+
+// Compiler - Preprocessing.
+ENABLE_NS_ASSERTIONS = YES
+
+CLANG_ENABLE_MODULES = YES
+
+CLANG_CXX_LANGUAGE_STANDARD = c++11
+CLANG_CXX_LIBRARY = libc++
+
+// Compiler - Language.
+GCC_PRECOMPILE_PREFIX_HEADER = YES
+GCC_PREFIX_HEADER = TwilioSDK/TwilioSDK-Prefix.pch
+
+OTHER_CFLAGS = -Wall -DWEBRTC_POSIX -DWEBRTC_MAC -DWEBRTC_IOS -DTARGET_OS_IPHONE -DTWILIO_SDK_2_0
+OTHER_CFLAGS[sdk=iphoneos*] = $(OTHER_CFLAGS) -DARM
+
+OTHER_LDFLAGS = $(inherited) -framework XCTest -lboringssl -lwebrtc -lwebrtc-objc
+
+HEADER_SEARCH_PATHS = $(SRCROOT)/TwilioSDK/Sources/Objective-C/Implementation $(VIDEO_INCLUDE_PATH) $(VIDEO_INCLUDE_PATH)/video ${VIDEO_INCLUDE_PATH}/third_party/webrtc ${VIDEO_INCLUDE_PATH}/third_party/webrtc/third_party/libyuv/include $(VIDEO_INCLUDE_PATH)/third_party/webrtc/webrtc/sdk/objc/Framework/Headers
+
+LIBRARY_SEARCH_PATHS = $(inherited) $(VIDEO_LIB_PATH)
+
+FRAMEWORK_SEARCH_PATHS = $(PLATFORM_DIR)/Developer/Library/Frameworks

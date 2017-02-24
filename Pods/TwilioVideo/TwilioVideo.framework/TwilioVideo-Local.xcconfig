@@ -1,0 +1,9 @@
+//
+//  TwilioVideo-Local.xcconfig
+//  TwilioSignalSDK
+//
+//  Created by Ryan Payne on 1/19/17.
+//  Copyright © 2017 Twilio, Inc. All rights reserved.
+//
+#include "TwilioVideo.xcconfig"
+#include "../../Configurations/TwilioVideo-LocalOverrides.xcconfig"

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, VirtualOfficeDelegate {
 
     // MARK: Properties
     
@@ -49,6 +49,7 @@ class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func animateImageAtIndexPath(indexPath: IndexPath) {
+        var startingPoint = self.tableView.cellForRow(at: indexPath)?.imageView?.center.x
         UIView.animate(withDuration: 0.15, animations: {
             self.tableView.cellForRow(at: indexPath)?.imageView?.center.x += 10
         }) { (_) in
@@ -59,7 +60,7 @@ class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITab
                     self.tableView.cellForRow(at: indexPath)?.imageView?.center.x += 20
                 }) { (_) in
                     UIView.animate(withDuration: 0.15, animations: {
-                        self.tableView.cellForRow(at: indexPath)?.imageView?.center.x -= 10
+                        self.tableView.cellForRow(at: indexPath)?.imageView?.center.x = startingPoint!
                     }, completion: nil)
                 }
             }
@@ -94,7 +95,9 @@ class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITab
                     if virtualOffice.status == "open" {
                         VirtualOfficeController.updateVirtualOffice(virtualOffice, withStatus: "occupied", completion: { (virtualOffice) in
                             if let virtualOffice = virtualOffice {
-                                self.performSegue(withIdentifier: "presentOfficeToPatient", sender: virtualOffice.identifier)
+                                VirtualOfficeController.sharedInstance.userIsPatient = true
+                                VirtualOfficeController.sharedInstance.currentVirtualOffice = virtualOffice
+                                self.performSegue(withIdentifier: "presentOfficeToPatient", sender: nil)
                             }
                         })
                     } else {
@@ -112,13 +115,25 @@ class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITab
         return 65
     }
     
+    // MARK: Virtual Office Delegate
+    func virtualOfficeDismissed() {
+        if let virtualOffice = VirtualOfficeController.sharedInstance.currentVirtualOffice {
+            VirtualOfficeController.updateVirtualOffice(virtualOffice, withStatus: "open", completion: { (virtualOffice) in
+                if let virtualOffice = virtualOffice {
+                    VirtualOfficeController.sharedInstance.currentVirtualOffice = nil
+                    print("disappeared correctly")
+                }
+            })
+        }
+    }
+    
+
+    
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? VirtualOfficeViewController,
-            let virtualOfficeIdentifier = sender as? String {
-            destination.userIsPatient = true
-            destination.virtualOfficeIdentifier = virtualOfficeIdentifier
+        if let destination = segue.destination as? VirtualOfficeViewController {
+            destination.delegate = self
         }
     }
     
