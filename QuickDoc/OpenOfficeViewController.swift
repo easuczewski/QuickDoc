@@ -12,6 +12,10 @@ class OpenOfficeViewController: UIViewController, UITableViewDataSource, UITable
 
     // MARK: Properties
     
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+
     var selectedSpecialty: String?
     
     // MARK: Outlets

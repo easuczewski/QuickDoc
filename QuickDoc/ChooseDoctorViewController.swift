@@ -12,6 +12,14 @@ class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITab
 
     // MARK: Properties
     
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+    
     var virtualOffices = [VirtualOffice]()
     
     // MARK: Outlets

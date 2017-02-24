@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>QuickDoc requires access to your device's camera for video chat.</string>
+	<string>QuickDoc requires access to your device&apos;s camera for video chat.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>QuickDoc requires access to your device's microphone for video chat.</string>
+	<string>QuickDoc requires access to your device&apos;s microphone for video chat.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -35,9 +35,9 @@
 	<key>UIRequiresFullScreen</key>
 	<false/>
 	<key>UIStatusBarHidden</key>
-	<false/>
+	<true/>
 	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleDefault</string>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -49,7 +49,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 </dict>
 </plist>
