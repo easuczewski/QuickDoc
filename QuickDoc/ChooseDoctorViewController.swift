@@ -23,6 +23,7 @@ class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITab
     var virtualOffices = [VirtualOffice]()
     
     // MARK: Outlets
+    
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Actions
@@ -45,17 +46,7 @@ class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITab
     
     // MARK: Methods
     
-    func updateViewWithVirtualOffices() {
-        VirtualOfficeController.fetchAllVirtualOffices { (virtualOffices) in
-            if let virtualOffices = virtualOffices {
-                self.virtualOffices = virtualOffices
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
-    
+    // animations
     func animateImageAtIndexPath(indexPath: IndexPath) {
         var startingPoint = self.tableView.cellForRow(at: indexPath)?.imageView?.center.x
         UIView.animate(withDuration: 0.15, animations: {
@@ -74,8 +65,19 @@ class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITab
             }
         }
     }
-
-
+    
+    // update UI
+    func updateViewWithVirtualOffices() {
+        VirtualOfficeController.fetchAllVirtualOffices { (virtualOffices) in
+            if let virtualOffices = virtualOffices {
+                self.virtualOffices = virtualOffices
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
     // MARK: Table View Data Source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -124,20 +126,23 @@ class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     // MARK: Virtual Office Delegate
+    
     func virtualOfficeDismissed() {
-        if let virtualOffice = VirtualOfficeController.sharedInstance.currentVirtualOffice {
-            if virtualOffice.status != "closed" {
-                VirtualOfficeController.updateVirtualOffice(virtualOffice, withStatus: "open", completion: { (virtualOffice) in
-                    if let virtualOffice = virtualOffice {
-                        VirtualOfficeController.sharedInstance.currentVirtualOffice = nil
-                        print("disappeared correctly")
+        if let identifier = VirtualOfficeController.sharedInstance.currentVirtualOffice?.identifier {
+            VirtualOfficeController.virtualOffice(withIdentifier: identifier, completion: { (virtualOffice) in
+                if let virtualOffice = virtualOffice {
+                    if virtualOffice.status != "closed" {
+                        VirtualOfficeController.updateVirtualOffice(virtualOffice, withStatus: "open", completion: { (virtualOffice) in
+                            if let virtualOffice = virtualOffice {
+                                VirtualOfficeController.sharedInstance.currentVirtualOffice = nil
+                                print("disappeared correctly")
+                            }
+                        })
                     }
-                })
-            }
+                }
+            })
         }
     }
-    
-
     
     // MARK: Navigation
     
@@ -146,6 +151,4 @@ class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITab
             destination.delegate = self
         }
     }
-    
-    
 }

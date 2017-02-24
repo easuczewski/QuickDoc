@@ -45,6 +45,7 @@ class OpenOfficeViewController: UIViewController, UITableViewDataSource, UITable
     
     // MARK: Methods
     
+    // update UI
     func updateViewWithDefaults() {
         if let lastName = UserDefaults.standard.string(forKey: "lastName"),
             let specialty = UserDefaults.standard.string(forKey: "specialty"),
@@ -55,30 +56,7 @@ class OpenOfficeViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    func setUpTapGestureRecognizers() {
-        let openOfficeTGR = UITapGestureRecognizer(target: self, action: #selector(continueTapped))
-        self.openOfficeImageView.addGestureRecognizer(openOfficeTGR)
-    }
-    
-    func continueTapped() {
-        guard lastNameTextField.text?.replacingOccurrences(of: " ", with: "") != "",
-            lastNameTextField.text != nil else {
-            animateName()
-            return
-        }
-        guard self.selectedSpecialty != nil else {
-            animateSpecialty()
-            return
-        }
-        VirtualOfficeController.createVirtualOffice(forDoctor: lastNameTextField.text!, withSpecialty: selectedSpecialty!) { (virtualOffice) in
-            if let virtualOffice = virtualOffice {
-                VirtualOfficeController.sharedInstance.currentVirtualOffice = virtualOffice
-                VirtualOfficeController.sharedInstance.userIsPatient = false
-                self.performSegue(withIdentifier: "presentOfficeToDoctor", sender: nil)
-            }
-        }
-    }
-    
+    // responsive animations
     func animateName() {
         UIView.animate(withDuration: 0.15, animations: {
             self.nameLabel.center.x += 15
@@ -126,7 +104,32 @@ class OpenOfficeViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
     }
-
+    
+    // tap gestures & actions
+    func setUpTapGestureRecognizers() {
+        let openOfficeTGR = UITapGestureRecognizer(target: self, action: #selector(continueTapped))
+        self.openOfficeImageView.addGestureRecognizer(openOfficeTGR)
+    }
+    
+    func continueTapped() {
+        guard lastNameTextField.text?.replacingOccurrences(of: " ", with: "") != "",
+            lastNameTextField.text != nil else {
+            animateName()
+            return
+        }
+        guard self.selectedSpecialty != nil else {
+            animateSpecialty()
+            return
+        }
+        VirtualOfficeController.createVirtualOffice(forDoctor: lastNameTextField.text!, withSpecialty: selectedSpecialty!) { (virtualOffice) in
+            if let virtualOffice = virtualOffice {
+                VirtualOfficeController.sharedInstance.currentVirtualOffice = virtualOffice
+                VirtualOfficeController.sharedInstance.userIsPatient = false
+                self.performSegue(withIdentifier: "presentOfficeToDoctor", sender: nil)
+            }
+        }
+    }
+    
     // MARK: Table View Data Source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -155,6 +158,7 @@ class OpenOfficeViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     // MARK: Virtual Office Delegate
+    
     func virtualOfficeDismissed() {
         if let virtualOffice = VirtualOfficeController.sharedInstance.currentVirtualOffice {
             VirtualOfficeController.updateVirtualOffice(virtualOffice, withStatus: "closed", completion: { (virtualOffice) in

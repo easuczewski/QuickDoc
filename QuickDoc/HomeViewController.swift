@@ -62,7 +62,7 @@ class HomeViewController: UIViewController {
     
      // MARK: Methods
     
-    
+    // animations
     func animateLogo() {
         var images = [UIImage]()
         for n in 1...27 {
@@ -77,7 +77,7 @@ class HomeViewController: UIViewController {
         logoImageView.startAnimating()
     }
 
-
+    // update UI
     func updateViewWithUserRole(animated: Bool) {
         if userIsPatient {
             patientButton.backgroundColor = CustomColors.quickDocCerulean
@@ -114,6 +114,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+    // tap gestures & actions
     func setUpTapGestureRecognizers() {
         let toggleRoleTGR = UITapGestureRecognizer(target: self, action: #selector(toggleRoleTapped))
         self.roleImageView.addGestureRecognizer(toggleRoleTGR)

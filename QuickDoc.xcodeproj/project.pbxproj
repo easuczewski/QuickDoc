@@ -84,6 +84,7 @@
 				029C14941E5E63D700ECB3F1 /* AppDelegate.swift */,
 				029C14B91E5F2ADA00ECB3F1 /* CustomColors.swift */,
 				029C14BB1E5F47B000ECB3F1 /* ArrayExtension.swift */,
+				029C14BD1E5F5E0800ECB3F1 /* SpecialtiesManager.swift */,
 				029C14AC1E5F259800ECB3F1 /* Model */,
 				029C14AD1E5F25A300ECB3F1 /* Controller */,
 				029C14AE1E5F25BC00ECB3F1 /* View */,
@@ -98,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				029C14AA1E5F234B00ECB3F1 /* VirtualOffice.swift */,
-				029C14BD1E5F5E0800ECB3F1 /* SpecialtiesManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";

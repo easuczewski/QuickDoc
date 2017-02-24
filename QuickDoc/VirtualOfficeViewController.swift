@@ -18,34 +18,31 @@ class VirtualOfficeViewController: UIViewController {
     
     // MARK: Properties
     
-    var delegate: VirtualOfficeDelegate?
-    
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
-    // Video SDK components
+    // delegation
+    var delegate: VirtualOfficeDelegate?
     
-    // videoClient
+    // twilio video SDK components
     var videoClient: TVIVideoClient?
-    
-    // localMedia
     var localMedia: TVILocalMedia?
     var localVideoTrack: TVILocalVideoTrack?
     var localAudioTrack: TVILocalAudioTrack?
     var camera: TVICameraCapturer?
-    
-    // connect to a room
     var room: TVIRoom?
     var participant: TVIParticipant?
     
     // MARK: Outlets
+    
     @IBOutlet weak var endCallButton: UIButton!
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var videoStatusLabel: UILabel!
     @IBOutlet weak var selfView: UIView!
     
     // MARK: Actions
+    
     @IBAction func endCallButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -78,6 +75,7 @@ class VirtualOfficeViewController: UIViewController {
     
     // MARK: Methods
 
+    // video setup & cleanup methods
     func connectVideo() {
         guard let name = FIRAuth.auth()?.currentUser?.uid,
             let provider = FIRAuth.auth()?.currentUser?.providerID.trimmingCharacters(in: .whitespaces) else {
@@ -85,7 +83,6 @@ class VirtualOfficeViewController: UIViewController {
         }
         let urlString = "https://cybermed-token-server.herokuapp.com/token?identity=" + name + "&device=" + provider
         guard let url = NSURL(string: urlString) else {
-            // unwind segue
             return
         }
         var urlRequest = URLRequest(url: url as URL)
@@ -100,7 +97,6 @@ class VirtualOfficeViewController: UIViewController {
                 }
             } catch let error as NSError {
                 print(error)
-                // unwind segue
             }
             }.resume()
     }
@@ -119,7 +115,6 @@ class VirtualOfficeViewController: UIViewController {
     func connectToARoom() {
         guard let virtualOfficeIdentifier = VirtualOfficeController.sharedInstance.currentVirtualOffice?.identifier else {
             return
-            // unwind segue
         }
         let connectOptions = TVIConnectOptions { (builder) in
             builder.name = virtualOfficeIdentifier
@@ -137,6 +132,7 @@ class VirtualOfficeViewController: UIViewController {
         self.participant = nil
     }
     
+    // tap gestures & actions
     func setUpTapGestureRecognizers() {
         let toggleButtonTGR = UITapGestureRecognizer(target: self, action: #selector(toggleButtonTapped))
         self.videoView.addGestureRecognizer(toggleButtonTGR)
@@ -152,6 +148,8 @@ class VirtualOfficeViewController: UIViewController {
 
 
 }
+
+// MARK: TVIRoomDelegate
 
 extension VirtualOfficeViewController : TVIRoomDelegate {
     func didConnect(to room: TVIRoom) {
@@ -196,6 +194,7 @@ extension VirtualOfficeViewController : TVIRoomDelegate {
 }
 
 // MARK: TVIParticipantDelegate
+
 extension VirtualOfficeViewController : TVIParticipantDelegate {
     func participant(_ participant: TVIParticipant, addedVideoTrack videoTrack: TVIVideoTrack) {
         print("Participant \(participant.identity) added video track")
@@ -211,8 +210,6 @@ extension VirtualOfficeViewController : TVIParticipantDelegate {
         if (self.participant == participant) {
             if !VirtualOfficeController.sharedInstance.userIsPatient {
                 self.videoStatusLabel.isHidden = false
-            } else {
-                VirtualOfficeController.sharedInstance.currentVirtualOffice?.status = "closed"
             }
             videoTrack.detach(self.videoView)
         }
