@@ -43,6 +43,7 @@ class VirtualOfficeViewController: UIViewController {
     @IBOutlet weak var endCallButton: UIButton!
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var videoStatusLabel: UILabel!
+    @IBOutlet weak var selfView: UIView!
     
     // MARK: Actions
     @IBAction func endCallButtonTapped(_ sender: UIButton) {
@@ -53,13 +54,19 @@ class VirtualOfficeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUpTapGestureRecognizers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        setUpLocalMedia()
         connectVideo()
+        if VirtualOfficeController.sharedInstance.userIsPatient {
+            videoStatusLabel.isHidden = true
+        } else {
+            videoStatusLabel.isHidden = false
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -89,7 +96,6 @@ class VirtualOfficeViewController: UIViewController {
                 let json = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
                 if let token = json["token"] as? String {
                     self.videoClient = TVIVideoClient(token: token)
-                    self.setUpLocalMedia()
                     self.connectToARoom()
                 }
             } catch let error as NSError {
@@ -105,6 +111,7 @@ class VirtualOfficeViewController: UIViewController {
         camera = TVICameraCapturer()
         if let camera = camera {
             localVideoTrack = localMedia?.addVideoTrack(true, capturer: camera)
+            localVideoTrack?.attach(self.selfView)
         }
     }
 
@@ -120,23 +127,6 @@ class VirtualOfficeViewController: UIViewController {
         }
         room = videoClient?.connect(with: connectOptions, delegate: self)
     }
-
-    // Update our UI based upon if we are in a Room or not
-    func showRoomUI(inRoom: Bool) {
-//        self.connectButton.isHidden = inRoom
-//        self.roomTextField.isHidden = inRoom
-//        self.roomLine.isHidden = inRoom
-//        self.roomLabel.isHidden = inRoom
-//        self.micButton.isHidden = !inRoom
-//        self.disconnectButton.isHidden = !inRoom
-//        UIApplication.shared.isIdleTimerDisabled = inRoom
-    }
-    
-    func dismissKeyboard() {
-//        if (self.roomTextField.isFirstResponder) {
-//            self.roomTextField.resignFirstResponder()
-//        }
-    }
     
     func cleanupRemoteParticipant() {
         if ((self.participant) != nil) {
@@ -146,13 +136,26 @@ class VirtualOfficeViewController: UIViewController {
         }
         self.participant = nil
     }
+    
+    func setUpTapGestureRecognizers() {
+        let toggleButtonTGR = UITapGestureRecognizer(target: self, action: #selector(toggleButtonTapped))
+        self.videoView.addGestureRecognizer(toggleButtonTGR)
+    }
+    
+    func toggleButtonTapped() {
+        if endCallButton.isHidden {
+            endCallButton.isHidden = false
+        } else {
+            endCallButton.isHidden = true
+        }
+    }
+
 
 }
 
 extension VirtualOfficeViewController : TVIRoomDelegate {
     func didConnect(to room: TVIRoom) {
         
-        // At the moment, this example only supports rendering one Participant at a time.
         
         print("Connected to room \(room.name) as \(room.localParticipant?.identity)")
         
@@ -168,14 +171,12 @@ extension VirtualOfficeViewController : TVIRoomDelegate {
         self.cleanupRemoteParticipant()
         self.room = nil
         
-        self.showRoomUI(inRoom: false)
     }
     
     func room(_ room: TVIRoom, didFailToConnectWithError error: Error) {
         print("Failed to connect to room with error")
         self.room = nil
         
-        self.showRoomUI(inRoom: false)
     }
     
     func room(_ room: TVIRoom, participantDidConnect participant: TVIParticipant) {
@@ -200,6 +201,7 @@ extension VirtualOfficeViewController : TVIParticipantDelegate {
         print("Participant \(participant.identity) added video track")
         
         if (self.participant == participant) {
+            self.videoStatusLabel.isHidden = true
             videoTrack.attach(self.videoView)
         }
     }
@@ -207,6 +209,11 @@ extension VirtualOfficeViewController : TVIParticipantDelegate {
     func participant(_ participant: TVIParticipant, removedVideoTrack videoTrack: TVIVideoTrack) {
         print("Participant \(participant.identity) removed video track")
         if (self.participant == participant) {
+            if !VirtualOfficeController.sharedInstance.userIsPatient {
+                self.videoStatusLabel.isHidden = false
+            } else {
+                VirtualOfficeController.sharedInstance.currentVirtualOffice?.status = "closed"
+            }
             videoTrack.detach(self.videoView)
         }
     }

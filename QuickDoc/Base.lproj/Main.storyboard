@@ -92,6 +92,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Z5i-7X-Nsq" secondAttribute="trailing" constant="-16" id="6lp-VA-2mV"/>
+                            <constraint firstItem="myv-iH-fMY" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="F5w-G0-8Ex"/>
                             <constraint firstItem="Z5i-7X-Nsq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Hy4-5d-e2b"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Lrp-rG-VCb" secondAttribute="bottom" id="Keu-tb-I9J"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lrp-rG-VCb" secondAttribute="trailing" constant="-20" id="LEi-XQ-ue8"/>
@@ -103,6 +104,22 @@
                             <constraint firstItem="myv-iH-fMY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s9E-MU-y1w"/>
                             <constraint firstItem="Lrp-rG-VCb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="wPs-B9-2qy"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="F5w-G0-8Ex"/>
+                                <exclude reference="OTy-YK-OXB"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="OTy-YK-OXB"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="F5w-G0-8Ex"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Ua2-M0-4Fn"/>
                     <connections>
@@ -327,14 +344,14 @@
                                 <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kt-sg-eSY">
-                                <rect key="frame" x="151" y="319" width="72" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for patients." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kt-sg-eSY">
+                                <rect key="frame" x="91" y="319" width="193" height="28"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5D-4K-xkV">
-                                <rect key="frame" x="26" y="30" width="323" height="36"/>
+                                <rect key="frame" x="26" y="621" width="323" height="36"/>
                                 <color key="backgroundColor" red="0.84313725490196079" green="0.14901960784313725" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="END CALL">
@@ -344,12 +361,22 @@
                                     <action selector="endCallButtonTapped:" destination="idj-4K-3Dg" eventType="touchUpInside" id="tvG-4f-mIb"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T6F-z3-xY6" userLabel="self">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="S9t-0a-1KL"/>
+                                    <constraint firstAttribute="height" constant="160" id="iae-Ds-se6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="q5D-4K-xkV" firstAttribute="top" secondItem="AtV-Mf-hOj" secondAttribute="bottom" constant="10" id="5It-lz-AzV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="T6F-z3-xY6" secondAttribute="trailing" constant="10" id="1iQ-aw-Ujl"/>
                             <constraint firstItem="EN0-98-4Rl" firstAttribute="leading" secondItem="w8E-fz-dg1" secondAttribute="leadingMargin" constant="-20" id="6Cz-69-mid"/>
                             <constraint firstItem="q5D-4K-xkV" firstAttribute="leading" secondItem="w8E-fz-dg1" secondAttribute="leadingMargin" constant="10" id="9uh-wF-nlS"/>
+                            <constraint firstItem="d0g-Lj-XRq" firstAttribute="top" secondItem="q5D-4K-xkV" secondAttribute="bottom" constant="10" id="J7a-U1-IKU"/>
+                            <constraint firstItem="T6F-z3-xY6" firstAttribute="top" secondItem="AtV-Mf-hOj" secondAttribute="bottom" constant="10" id="L4B-t1-fYP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="q5D-4K-xkV" secondAttribute="trailing" constant="10" id="TR3-m7-ohW"/>
                             <constraint firstItem="3Kt-sg-eSY" firstAttribute="centerX" secondItem="w8E-fz-dg1" secondAttribute="centerX" id="eZ4-0U-ap1"/>
                             <constraint firstItem="EN0-98-4Rl" firstAttribute="top" secondItem="AtV-Mf-hOj" secondAttribute="bottom" constant="-20" id="h5j-l5-S5V"/>
@@ -361,6 +388,7 @@
                     </view>
                     <connections>
                         <outlet property="endCallButton" destination="q5D-4K-xkV" id="afT-1R-nyu"/>
+                        <outlet property="selfView" destination="T6F-z3-xY6" id="hvn-mz-8pK"/>
                         <outlet property="videoStatusLabel" destination="3Kt-sg-eSY" id="AYM-8n-Oxg"/>
                         <outlet property="videoView" destination="EN0-98-4Rl" id="ETb-dp-w5G"/>
                     </connections>

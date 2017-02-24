@@ -126,12 +126,14 @@ class ChooseDoctorViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: Virtual Office Delegate
     func virtualOfficeDismissed() {
         if let virtualOffice = VirtualOfficeController.sharedInstance.currentVirtualOffice {
-            VirtualOfficeController.updateVirtualOffice(virtualOffice, withStatus: "open", completion: { (virtualOffice) in
-                if let virtualOffice = virtualOffice {
-                    VirtualOfficeController.sharedInstance.currentVirtualOffice = nil
-                    print("disappeared correctly")
-                }
-            })
+            if virtualOffice.status != "closed" {
+                VirtualOfficeController.updateVirtualOffice(virtualOffice, withStatus: "open", completion: { (virtualOffice) in
+                    if let virtualOffice = virtualOffice {
+                        VirtualOfficeController.sharedInstance.currentVirtualOffice = nil
+                        print("disappeared correctly")
+                    }
+                })
+            }
         }
     }
     
